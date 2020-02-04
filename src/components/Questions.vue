@@ -4,16 +4,23 @@
             <div v-for="question in questions" v-bind:key="question">
                 <b-card
                     class="question"
-                    :header="`Question ${question}`"
-                />
+                    :header="`Question ${question}`">
+                    <SumQ/>
+                </b-card>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
+    import SumQ from "./questions/SumQ";
+
     export default {
         name: "Questions",
+        components: {
+            SumQ
+        },
         data: function() {
             return {
                 questions: [
@@ -38,6 +45,8 @@
     #questions {
         width: device-width;
         max-width: 70rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #question-wrapper {

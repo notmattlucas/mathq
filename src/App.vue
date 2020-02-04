@@ -17,7 +17,7 @@
     export default {
         name: 'mathq',
         components: {
-          Questions,
+            Questions,
             HeaderBar
         }
     }
