@@ -1,11 +1,18 @@
 <template>
     <div class="sumq">
-        <b-form inline>
-            <label class="sum">
-                10 + 11 =
-            </label>
-            <b-input class="answer" />
-        </b-form>
+        <b-container>
+            <b-row class="justify-content-md-center">
+                <b-col md="auto">
+                    <b-form inline class="text-center">
+                        <label class="sum">
+                            10 + 11 =
+                        </label>
+                        <b-form-input class="answer"
+                                      type="number"/>
+                    </b-form>
+                </b-col>
+            </b-row>
+        </b-container>
     </div>
 </template>
 
@@ -33,7 +40,14 @@
     }
 
     .answer {
-        width: 3rem;
+        text-align: center;
+        width: 4rem;
+        max-width: 4rem;
+        border: solid 1px black;
+        margin-left: 1rem;
+        height: 4rem;
+        font-size: 150%;
+        padding: 0px;
     }
 
 </style>
