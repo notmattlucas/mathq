@@ -5,7 +5,7 @@
                 <b-col md="auto">
                     <b-form inline class="text-center">
                         <label class="sum">
-                            10 + 11 =
+                            {{sum.left}} + {{sum.right}} =
                         </label>
                         <b-form-input class="answer"
                                       type="number"/>
@@ -17,9 +17,18 @@
 </template>
 
 <script>
+
+    const {Sum} = require('./questions');
+
     export default {
-        name: "SumQ"
+        name: "SumQ",
+        data: () => {
+            return {
+                sum: new Sum(100)
+            }
+        }
     }
+
 </script>
 
 <style scoped>
