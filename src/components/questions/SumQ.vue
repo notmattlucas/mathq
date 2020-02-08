@@ -3,11 +3,12 @@
         <b-container>
             <b-row class="justify-content-md-center">
                 <b-col md="auto">
-                    <b-form inline class="text-center">
+                    <b-form inline class="text-center" v-on:submit.prevent="send">
                         <label class="sum">
-                            {{sum.left}} + {{sum.right}} =
+                            {{question.left}} + {{question.right}} =
                         </label>
-                        <b-form-input class="answer"
+                        <b-form-input v-model="answer"
+                                      class="answer"
                                       type="number"/>
                     </b-form>
                 </b-col>
@@ -18,13 +19,20 @@
 
 <script>
 
-    const {Sum} = require('./questions');
-
     export default {
         name: "SumQ",
+        props: {
+            question: Object
+        },
         data: () => {
             return {
-                sum: new Sum(100)
+                answer: null
+            }
+        },
+        methods: {
+            check: function() {
+                let answer = parseInt(this.answer);
+                return this.question.check(answer)
             }
         }
     }

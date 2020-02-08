@@ -1,12 +1,8 @@
 <template>
     <div id="question-wrapper">
         <div id="questions">
-            <div v-for="question in questions" v-bind:key="question">
-                <b-card
-                    class="question"
-                    :header="`Question ${question}`">
-                    <SumQ/>
-                </b-card>
+            <div v-for="question in questions" v-bind:key="question.id">
+                <Question :question="question" />
             </div>
         </div>
     </div>
@@ -14,33 +10,26 @@
 
 <script>
 
-    import SumQ from "./questions/SumQ";
+    let gen = require('./questions/ks1_generator');
+    import Question from "./Question";
 
     export default {
         name: "Questions",
         components: {
-            SumQ
+            Question
         },
         data: function() {
             return {
-                questions: [
-                    1,2,3,4,5,6,7,8,9,10
-                ]
+                questions: gen.generate(10),
             }
+        },
+        methods: {
+
         }
     }
 </script>
 
 <style scoped>
-
-    .question {
-        margin: 2rem;
-        margin-top: 0rem;
-    }
-
-    .question .card-header {
-        text-align: left;
-    }
 
     #questions {
         width: device-width;
