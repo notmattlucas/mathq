@@ -3,7 +3,7 @@
         <b-container>
             <b-row class="justify-content-md-center">
                 <b-col md="auto">
-                    <b-form inline class="text-center" v-on:submit.prevent="send">
+                    <b-form inline class="text-center" @submit="submit" v-on:submit.prevent>
                         <label class="sum">
                             {{question.left}} + {{question.right}} =
                         </label>
@@ -33,6 +33,9 @@
             check: function() {
                 let answer = parseInt(this.answer);
                 return this.question.check(answer)
+            },
+            submit: function() {
+                this.$emit('complete');
             }
         }
     }

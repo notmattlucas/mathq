@@ -8,17 +8,14 @@
             </transition>
             <h5 class="header mb-0">Question {{question.id}}</h5>
         </template>
-        <SumQ ref="question-view" :question="question.logic"/>
+        <component v-bind:is="question.view" ref="question-view" :question="question.logic" @complete="check($refs['question-view'])"/>
     </b-card>
 </template>
 
 <script>
-    import SumQ from "./questions/SumQ";
-
     export default {
         name: "Question",
         components: {
-            SumQ
         },
         props: {
             question: Object
